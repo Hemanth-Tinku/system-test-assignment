@@ -1,51 +1,52 @@
-import React, { useState } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React from 'react';
+import {
+    LineChart,
+    Line,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    Legend,
+    ResponsiveContainer,
+} from 'recharts';
 import performanceLineChartStyles from '../styles/performanceLineChartStyles';
 
-const PerformanceLineChart = ({ data, title, description, metrics }) => {
-    const [selectedMetric, setSelectedMetric] = useState(metrics[0]);
-
+const PerformanceLineChart = ({ data, title, description, metrics, selectedMetric, setSelectedMetric }) => {
     return (
         <div style={performanceLineChartStyles.container}>
-            {/* Title and Description */}
             <div style={performanceLineChartStyles.header}>
                 <div>
-                    <h2 style={performanceLineChartStyles.title}>{title}</h2>
+                    <h3 style={performanceLineChartStyles.title}>{title}</h3>
                     <p style={performanceLineChartStyles.description}>{description}</p>
                 </div>
-
-                {/* Metrics Dropdown */}
                 <select
-                    style={performanceLineChartStyles.dropdown}
                     value={selectedMetric}
                     onChange={(e) => setSelectedMetric(e.target.value)}
+                    style={{ padding: '0.5rem', borderRadius: '5px', marginBottom: '1rem' }}
                 >
-                    {metrics.map((metric, index) => (
-                        <option key={index} value={metric}>
+                    {metrics.map((metric) => (
+                        <option key={metric} value={metric}>
                             {metric}
                         </option>
                     ))}
                 </select>
             </div>
-
-            {/* Chart */}
             <div style={performanceLineChartStyles.chartContainer}>
                 <ResponsiveContainer width="100%" height={300}>
                     <LineChart
                         data={data}
                         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
                     >
-                        <CartesianGrid strokeDasharray="3 3" stroke="#ccc" />
+                        <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
                         <YAxis />
                         <Tooltip />
                         <Legend />
                         <Line
                             type="monotone"
-                            dataKey={selectedMetric}
+                            dataKey="value"
                             stroke="#8884d8"
                             activeDot={{ r: 8 }}
-                            strokeWidth={2}
                         />
                     </LineChart>
                 </ResponsiveContainer>
@@ -53,6 +54,5 @@ const PerformanceLineChart = ({ data, title, description, metrics }) => {
         </div>
     );
 };
-
 
 export default PerformanceLineChart;

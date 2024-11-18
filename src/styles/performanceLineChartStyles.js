@@ -35,16 +35,9 @@ const performanceLineChartStyles = {
         backgroundColor: '#fff',
         transition: 'border 0.3s ease, background-color 0.3s ease',
     },
-    dropdownHover: {
-        borderColor: '#888',
-        backgroundColor: '#f0f0f0',
-    },
     chartContainer: {
-        backgroundColor: '#fff',
-        borderRadius: '8px',
-        padding: '1rem',
-        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+        height: '300px',
     },
-}
+};
 
 export default performanceLineChartStyles;

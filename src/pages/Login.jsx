@@ -15,6 +15,7 @@ const Login = () => {
             const { userDetails: { fullName }, token } = response;
 
             sessionStorage.setItem('user', JSON.stringify({ fullName, token }));
+            sessionStorage.setItem('isAuthenticated', 'true');
             navigate('/dashboard');
         } catch (err) {
             setError(err.message);
@@ -24,7 +25,7 @@ const Login = () => {
     const mockAuthenticate = async (username, password) => {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                if (username === 'admin' && password === 'password') {
+                if (username.trim() === 'admin' && password.trim() === 'password') {
                     resolve({
                         userDetails: { fullName: 'Admin User' },
                         token: 'mock-bearer-token-root-123',
