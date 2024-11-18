@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import PerformanceLineChart from '../components/PerformanceLineChart';
-import SidebarAndNavbar from '../components/SidebarAndNavbar';
-import HeatMapTable from '../components/HeatMapTable';
+import PerformanceLineChart from '../components/PerformanceLineChart.jsx';
+import SidebarAndNavbar from '../components/SidebarAndNavbar.jsx';
+import HeatMapTable from '../components/HeatMapTable.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const Dashboard = () => {
