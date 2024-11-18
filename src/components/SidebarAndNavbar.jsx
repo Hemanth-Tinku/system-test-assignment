@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import sidebarAndNavbarStyles from '../styles/sidebarAndNavbar';
 
 const SidebarAndNavbar = ({ children }) => {
     const navigate = useNavigate();
@@ -10,26 +11,26 @@ const SidebarAndNavbar = ({ children }) => {
     };
 
     return (
-        <div style={{ display: 'flex', height: '100vh' }}>
-            <aside style={{ width: '200px', background: '#333', color: '#fff', padding: '1rem' }}>
+        <div style={sidebarAndNavbarStyles.container}>
+            <aside style={sidebarAndNavbarStyles.sidebar}>
                 <nav>
-                    <ul style={{ listStyle: 'none', padding: 0 }}>
-                        <li><a href="/main" style={{ color: '#fff', textDecoration: 'none' }}>Dashboard</a></li>
-
+                    <ul style={sidebarAndNavbarStyles.navList}>
+                        <li><a href="/main" style={sidebarAndNavbarStyles.navItem}>Dashboard</a></li>
+                        <li><a href="/main" style={sidebarAndNavbarStyles.navItem}>Reports</a></li>
+                        <li><a href="/main" style={sidebarAndNavbarStyles.navItem}>Profile</a></li>
                     </ul>
                 </nav>
             </aside>
 
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-
-                <header style={{ background: '#555', color: '#fff', padding: '1rem', display: 'flex', justifyContent: 'space-between' }}>
-                    <h2>Application Title</h2>
-                    <button onClick={handleLogout} style={{ background: '#ff4d4d', border: 'none', padding: '0.5rem 1rem', color: '#fff', cursor: 'pointer' }}>
+            <div style={sidebarAndNavbarStyles.content}>
+                <header style={sidebarAndNavbarStyles.header}>
+                    <h2 style={sidebarAndNavbarStyles.title}>Dashboard</h2>
+                    <button onClick={handleLogout} style={sidebarAndNavbarStyles.logoutButton}>
                         Logout
                     </button>
                 </header>
 
-                <main style={{ padding: '1rem', overflow: 'auto' }}>
+                <main style={sidebarAndNavbarStyles.main}>
                     {children}
                 </main>
             </div>

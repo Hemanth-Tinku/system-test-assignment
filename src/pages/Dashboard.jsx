@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import SidebarAndNavbar from '../components/SidebarAndNavbar';
-import MetricsDropdown from '../components/MetricsDropdown';
 import PerformanceLineChart from '../components/PerformanceLineChart';
 import HeatMapTable from '../components/HeatMapTable';
 
 const Dashboard = () => {
-    const [selectedMetrics, setSelectedMetrics] = useState([]);
     const [lineChartData, setLineChartData] = useState([
         { name: 'Jan', value: 40 },
         { name: 'Feb', value: 30 },
@@ -23,12 +21,12 @@ const Dashboard = () => {
 
     return (
         <SidebarAndNavbar>
-            <h1>Dashboard</h1>
-            <MetricsDropdown
-                metrics={['Metric 1', 'Metric 2', 'Metric 3']}
-                onSelectionChange={setSelectedMetrics}
+            <PerformanceLineChart
+                data={lineChartData}
+                title="Performance Over Time"
+                description="This chart displays performance trends across different metrics over time."
+                metrics={['metric-A', 'metric-B', 'metric-C', 'metric-D']}
             />
-            <PerformanceLineChart data={lineChartData} />
             <HeatMapTable data={heatMapData} />
         </SidebarAndNavbar>
     );

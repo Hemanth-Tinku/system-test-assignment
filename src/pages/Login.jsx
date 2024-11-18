@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import loginStyles from '../styles/loginStyles';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -36,30 +37,34 @@ const Login = () => {
     };
 
     return (
-        <div style={{ maxWidth: '400px', margin: '0 auto', padding: '2rem' }}>
-            <h2>Login</h2>
-            <form onSubmit={handleLogin}>
-                <div>
-                    <label>Username:</label>
-                    <input
-                        type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    <label>Password:</label>
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                    />
-                </div>
-                {error && <p style={{ color: 'red' }}>{error}</p>}
-                <button type="submit">Login</button>
-            </form>
+        <div style={loginStyles.container}>
+            <div style={loginStyles.loginBox}>
+                <h2 style={loginStyles.heading}>Login</h2>
+                <form onSubmit={handleLogin} style={loginStyles.form}>
+                    <div style={loginStyles.inputGroup}>
+                        <label style={loginStyles.label}>Username:</label>
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required
+                            style={loginStyles.input}
+                        />
+                    </div>
+                    <div style={loginStyles.inputGroup}>
+                        <label style={loginStyles.label}>Password:</label>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                            style={loginStyles.input}
+                        />
+                    </div>
+                    {error && <p style={loginStyles.error}>{error}</p>}
+                    <button type="submit" style={loginStyles.button}>Login</button>
+                </form>
+            </div>
         </div>
     );
 };
