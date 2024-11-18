@@ -4,6 +4,18 @@
 
 This is a modern, interactive dashboard application built using React.js. It features various components, including a sidebar and navbar, line charts for performance data, and a heat map table for displaying tabular data with color-coded cells based on values. The application is designed to provide a simple and clean user interface with real-time data visualization.
 
+**[Live Demo](https://system-test-assignm-git-6c64a9-hemanth-kumars-projects-54558d95.vercel.app/login)**
+
+## Admin Credentials
+
+To access the application as an admin, use the following credentials:
+
+- **Username**: `admin`
+- **Password**: `password`
+
+These credentials provide access to all features in the dashboard, including viewing performance metrics and data in the heat map table. Please ensure these credentials are kept secure.
+
+
 ### Features:
 - **Sidebar and Navbar**: A flexible sidebar for easy navigation and a top navbar for quick access to logout functionality.
 - **Performance Line Chart**: A chart displaying performance metrics over time with a dynamic dropdown to choose different metrics.
